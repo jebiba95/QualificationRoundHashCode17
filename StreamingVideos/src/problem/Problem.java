@@ -69,4 +69,11 @@ public class Problem {
 			e.printStackTrace();
 		}
 	}
+	
+	public Cache randomCache(){
+		Random gen = new Random();
+		int indice = Math.abs(gen.nextInt()%caches.length);
+		
+		return caches[indice];
+	}
 }
