@@ -54,7 +54,7 @@ public class Problem {
 				System.out.println(endpoints[i].toString());
 			}
 			
-			for (int i = 0; i < caches.length; i++) {
+			for (int i = 0; i < requests.length; i++) {
 				int videoId = scan.nextInt();
 				int endpointId = scan.nextInt();
 				int numOfRequest = scan.nextInt();
