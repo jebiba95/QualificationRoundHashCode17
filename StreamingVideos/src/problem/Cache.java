@@ -6,11 +6,13 @@ public class Cache {
 	private int cacheId;
 	private int lenghtCache;
 	private ArrayList<Integer> endpointsId = null;
+	private ArrayList<Integer> videosId = null;
 	
 	public Cache (int cacheId, int lenghtCache) {
 		this.cacheId = cacheId; 
 		this.lenghtCache = lenghtCache;
 		endpointsId = new ArrayList<Integer>();
+		videosId = new ArrayList<Integer>();
 	}
 
 	public int getCacheId() {
@@ -27,6 +29,20 @@ public class Cache {
 
 	public ArrayList<Integer> getEndpoints() {
 		return endpointsId;
+	}
+	
+	public void addVideoId(int videoId) {
+		videosId.add(videoId);
+	}
+	
+	public String getVideoIds() {
+		String result = "";
+		
+		for (int i = 0; i < videosId.size(); i++) {
+			result += videosId.get(i) + " ";
+		}
+		
+		return result;
 	}
 
 	public int getLenghtCache() {
@@ -45,5 +61,6 @@ public class Cache {
 	public String toString() {
 		return "Cache [cacheId=" + cacheId + ", lenghtCache=" + lenghtCache + ", endpointsId=" + endpointsId + "]";
 	}
+	
 }
 

@@ -80,4 +80,12 @@ public class Problem {
 		
 		return caches[indice];
 	}
+	
+	public void writeSolution(String fileName) {
+		File f = new File(fileName);
+		
+		for (int i = 0; i < caches.length; i++) {
+			
+		}
+	}
 }
