@@ -36,7 +36,7 @@ public class Cache {
 	public boolean addVideoId(int videoId) {
 		int lengthVideo = Problem.videos[videoId].getLenghtVideo();
 		
-		if (lengthVideo <= freeSpace) {
+		if (lengthVideo <= freeSpace && !videosId.contains(videoId)) {
 			freeSpace -= lengthVideo;
 			videosId.add(videoId);
 			return true;
@@ -47,6 +47,10 @@ public class Cache {
 	
 	public String getVideoIds() {
 		String result = "";
+		
+		if (videosId.size() != 0) {
+			result += cacheId + " ";
+		}
 		
 		for (int i = 0; i < videosId.size(); i++) {
 			result += videosId.get(i) + " ";
