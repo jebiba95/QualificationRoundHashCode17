@@ -32,11 +32,6 @@ public class Problem {
 			caches = new Cache[numCaches];
 			requests = new Request[numRequest];
 			
-			for (int i = 0; i < caches.length; i++) {				
-				caches[i] = new Cache(lengthCaches);
-				System.out.println(caches[i].toString());
-			}
-			
 			// Second line.			
 			for (int i = 0; i < videos.length; i++) {
 				videos[i] = new Video(i, scan.nextInt());
@@ -49,7 +44,10 @@ public class Problem {
 				int numConnections = scan.nextInt();
 				if (numConnections != 0) {
 					for (int j = 0; j < numConnections; j++) {
-						endpoints[i].addCacheLatency(scan.nextInt(), scan.nextInt());
+						int cacheId = scan.nextInt();
+						caches[cacheId] = new Cache(cacheId, lengthCaches, i);
+						System.out.println(caches[cacheId].toString());
+						endpoints[i].addCacheLatency(cacheId, scan.nextInt());
 					}
 				}
 				
