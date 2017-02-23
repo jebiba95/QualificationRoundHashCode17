@@ -82,10 +82,22 @@ public class Problem {
 	}
 	
 	public void writeSolution(String fileName) {
-		//FileWriter f = new FileWriter(fileName);
-		
-		for (int i = 0; i < caches.length; i++) {
+		try {
+			FileWriter f = new FileWriter(fileName);
+			PrintWriter pw = new PrintWriter(f);
 			
+			pw.println(caches.length);
+			for (int i = 0; i < caches.length; i++) {
+				String line = caches[i].getVideoIds();
+				if (line.compareTo("") != 0) {
+					pw.println(line);
+				}
+			}
+			
+			pw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
