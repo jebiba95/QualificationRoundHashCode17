@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class Cache {
 	private int cacheId;
 	private int lenghtCache;
+	private int freeSpace;
 	private ArrayList<Integer> endpointsId = null;
 	private ArrayList<Integer> videosId = null;
 	
 	public Cache (int cacheId, int lenghtCache) {
 		this.cacheId = cacheId; 
 		this.lenghtCache = lenghtCache;
+		this.freeSpace = lenghtCache;
 		endpointsId = new ArrayList<Integer>();
 		videosId = new ArrayList<Integer>();
 	}
@@ -31,8 +33,16 @@ public class Cache {
 		return endpointsId;
 	}
 	
-	public void addVideoId(int videoId) {
-		videosId.add(videoId);
+	public boolean addVideoId(int videoId) {
+		int lengthVideo = Problem.videos[videoId].getLenghtVideo();
+		
+		if (lengthVideo <= freeSpace) {
+			freeSpace -= lengthVideo;
+			videosId.add(videoId);
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public String getVideoIds() {

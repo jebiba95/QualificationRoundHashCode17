@@ -6,10 +6,10 @@ import java.util.*;
 public class Problem {
 	
 	private File file = null;
-	Video[] videos = null;
-	Endpoint[] endpoints = null;
-	Cache[] caches = null;
-	Request[] requests = null;
+	public static Video[] videos = null;
+	public static Endpoint[] endpoints = null;
+	public static Cache[] caches = null;
+	public static Request[] requests = null;
 	
 	public Problem(String fileName) {
 		file = new File(fileName);
@@ -82,7 +82,7 @@ public class Problem {
 	}
 	
 	public void writeSolution(String fileName) {
-		File f = new File(fileName);
+		//FileWriter f = new FileWriter(fileName);
 		
 		for (int i = 0; i < caches.length; i++) {
 			
