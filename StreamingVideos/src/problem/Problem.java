@@ -39,15 +39,19 @@ public class Problem {
 			}
 			
 			for (int i = 0; i < caches.length; i++) {
+				caches[i] = new Cache(i, lengthCaches);
+				System.out.println(caches[i].toString());
+			}
+			
+			for (int i = 0; i < endpoints.length; i++) {
 				endpoints[i] = new Endpoint(i, scan.nextInt());
 				
 				int numConnections = scan.nextInt();
 				if (numConnections != 0) {
 					for (int j = 0; j < numConnections; j++) {
 						int cacheId = scan.nextInt();
-						caches[cacheId] = new Cache(cacheId, lengthCaches, i);
-						System.out.println(caches[cacheId].toString());
 						endpoints[i].addCacheLatency(cacheId, scan.nextInt());
+						caches[cacheId].addEndpointId(i);
 					}
 				}
 				

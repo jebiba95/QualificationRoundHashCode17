@@ -1,14 +1,16 @@
 package problem;
 
+import java.util.ArrayList;
+
 public class Cache {
 	private int cacheId;
 	private int lenghtCache;
-	private int endpointId;
+	private ArrayList<Integer> endpointsId = null;
 	
-	public Cache (int cacheId, int lenghtCache, int endpointId) {
+	public Cache (int cacheId, int lenghtCache) {
 		this.cacheId = cacheId; 
 		this.lenghtCache = lenghtCache;
-		this.endpointId = endpointId;
+		endpointsId = new ArrayList<Integer>();
 	}
 
 	public int getCacheId() {
@@ -19,12 +21,12 @@ public class Cache {
 		this.cacheId = cacheId;
 	}
 
-	public int getEndpointId() {
-		return endpointId;
+	public void addEndpointId(int endpointId) {
+		endpointsId.add(endpointId);
 	}
 
-	public void setEndpointId(int endpointId) {
-		this.endpointId = endpointId;
+	public ArrayList<Integer> getEndpoints() {
+		return endpointsId;
 	}
 
 	public int getLenghtCache() {
@@ -41,9 +43,7 @@ public class Cache {
 
 	@Override
 	public String toString() {
-		return "Cache [cacheId=" + cacheId + ", lenghtCache=" + lenghtCache + ", endpointId=" + endpointId + "]";
+		return "Cache [cacheId=" + cacheId + ", lenghtCache=" + lenghtCache + ", endpointsId=" + endpointsId + "]";
 	}
-	
-	
 }
 
